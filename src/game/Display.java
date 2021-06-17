@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,13 +16,19 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	
 	
 	
-	Display(JFrame pain) {
-		WorldMap map = new WorldMap(); 
-		pain.add(map);
+	Display() {
+		JFrame gameFrame = new StartFrame();
+		//WorldMap map = new WorldMap(); 
+		//this.add(map);
+		gameFrame.setBounds(0, 0, WIDTH, HEIGHT);
+		gameFrame.setVisible(true);
+		gameFrame.pack();
+		
 	}
 	
 	void drawGame(Graphics g) {
-		g.setColor(pain);
+		g.setColor(Color.GREEN);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 	}
 	
 

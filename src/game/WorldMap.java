@@ -1,8 +1,8 @@
 package game;
 //background
-import javax.swing.JPanel;
+import javax.swing.JFrame;
 
-public class WorldMap extends JPanel{
+public class WorldMap extends JFrame{
 	
 
 
