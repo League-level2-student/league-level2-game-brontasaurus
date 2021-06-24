@@ -9,14 +9,16 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 //game panel
 
 public class Display extends JPanel implements KeyListener, ActionListener{
 	
-	
+	Timer frameDraw = new Timer(1000/60,this);
 	
 	Display() {
+		frameDraw.start();
 		JFrame gameFrame = new StartFrame();
 		//WorldMap map = new WorldMap(); 
 		//this.add(map);
@@ -26,16 +28,25 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		
 	}
 	
+	
+	
 	void drawGame(Graphics g) {
 		g.setColor(Color.GREEN);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
+	}
+	
+	
+	@Override
+	public void paintComponent(Graphics g){
+		System.out.println("painted");
+		drawGame(g);
 	}
 	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		repaint();
 	}
 
 	@Override

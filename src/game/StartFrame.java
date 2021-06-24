@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class StartFrame extends JFrame implements KeyListener{
 
-	Color startColor = Color.CYAN;
+
 	JButton startButton = new JButton();
 	StartPanel startPanel = new StartPanel();
 	
@@ -22,6 +22,8 @@ public class StartFrame extends JFrame implements KeyListener{
 		startButton.setPreferredSize(new Dimension(80, 40));
 		startButton.setText("START");
 		startPanel.add(startButton);
+		startPanel.setLayout(null);
+		startButton.setBounds(335, 340, 80, 40);
 		
 	}
 
