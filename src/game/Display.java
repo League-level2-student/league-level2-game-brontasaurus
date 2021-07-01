@@ -16,8 +16,11 @@ import javax.swing.Timer;
 public class Display extends JPanel implements KeyListener, ActionListener{
 	
 	Timer frameDraw = new Timer(1000/60,this);
+	public static enum gameState {START, WORLD, FACE, END} 
+	public static gameState currentState = gameState.START;
 	
 	Display() {
+		
 		frameDraw.start();
 		JFrame gameFrame = new StartFrame();
 		//WorldMap map = new WorldMap(); 
@@ -25,10 +28,10 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		gameFrame.setBounds(0, 0, WIDTH, HEIGHT);
 		gameFrame.setVisible(true);
 		gameFrame.pack();
-		
+			
 	}
 	
-	
+
 	
 	void drawGame(Graphics g) {
 		g.setColor(Color.GREEN);
@@ -47,6 +50,26 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		repaint();
+		
+		
+		switch(currentState) {
+		default:
+			case START:
+				System.out.println("yhn");
+				break;
+			case WORLD:
+				
+				break;
+			case FACE:
+	
+				break;
+			case END:
+	
+				break;
+				
+		}
+		
+		
 	}
 
 	@Override
@@ -67,5 +90,6 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		
 	}
 
+	
 	
 }
