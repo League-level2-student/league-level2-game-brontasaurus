@@ -56,7 +56,8 @@ public class StartFrame extends JFrame implements KeyListener, ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == startButton) {
-			Display.currentState = Display.gameState.WORLD;
+			Runner.gaamState.setCurrentState(Display.gameState.WORLD);
+			//Display.currentState = Display.gameState.WORLD;
 			System.out.println("yey");
 		}
 	}

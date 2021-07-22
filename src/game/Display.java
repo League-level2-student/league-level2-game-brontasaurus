@@ -17,17 +17,18 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	
 	Timer frameDraw = new Timer(1000/60,this);
 	public static enum gameState {START, WORLD, FACE, END} 
-	public static gameState currentState = gameState.START;
+	//public static gameState currentState = gameState.START;
+	//GameState geemState = new GameState();
 	
 	Display() {
 		
 		frameDraw.start();
-		JFrame gameFrame = new StartFrame();
+		//JFrame gameFrame = new StartFrame();
 		//WorldMap map = new WorldMap(); 
 		//this.add(map);
-		gameFrame.setBounds(0, 0, WIDTH, HEIGHT);
-		gameFrame.setVisible(true);
-		gameFrame.pack();
+		//gameFrame.setBounds(0, 0, WIDTH, HEIGHT);
+		//gameFrame.setVisible(true);
+		//gameFrame.pack();
 			
 	}
 	
@@ -51,24 +52,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		// TODO Auto-generated method stub
 		repaint();
 		
-		
-		switch(currentState) {
-		default:
-			case START:
-				System.out.println("yhn");
-				break;
-			case WORLD:
-				
-				break;
-			case FACE:
-	
-				break;
-			case END:
-	
-				break;
-				
-		}
-		
+		//if (e.getSource() == JButton) {
 		
 	}
 

@@ -9,6 +9,8 @@ public class Runner {
 	public static final int WIDTH = 750;
 	public static final int HEIGHT = 500;
 	//public static int gameState = 0;
+	public static GameState gaamState;
+	
 	
 	public static void main(String[] args) {
 		Runner game = new Runner();
@@ -19,13 +21,17 @@ public class Runner {
 	
 	
 	void setUp() {
-		StartFrame startFrame = new StartFrame();
-		//object = new Display();
-		startFrame.add(startFrame.startPanel);
-		startFrame.setVisible(true);
-		startFrame.setSize(WIDTH, HEIGHT);
-		startFrame.addKeyListener(startFrame.startPanel);
 		
+		gaamState = new GameState();
+		
+		
+		//StartFrame startFrame = new StartFrame();
+		//object = new Display();
+		/*
+		 * startFrame.add(startFrame.startPanel); startFrame.setVisible(true);
+		 * startFrame.setSize(WIDTH, HEIGHT);
+		 * startFrame.addKeyListener(startFrame.startPanel); object = new Display();
+		 */
 		//startFrame.pack();
 	}
 	
