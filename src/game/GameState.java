@@ -3,6 +3,7 @@ package game;
 public class GameState {
 	private Display.gameState currentState;
 	Display object;
+	StartFrame startFrame = null;
 	public Display.gameState getCurrentState () {
 		return currentState;
 	}
@@ -14,11 +15,13 @@ public class GameState {
 	public void setCurrentState (Display.gameState x) {
 		currentState = x;
 		
+		
+		
 		switch(currentState) {
 		default:
 			case START:
 				System.out.println("yhn");
-				StartFrame startFrame = new StartFrame();
+				startFrame = new StartFrame();
 				startFrame.add(startFrame.startPanel);
 				startFrame.setVisible(true);
 				startFrame.setSize(Runner.WIDTH, Runner.HEIGHT);
@@ -26,6 +29,8 @@ public class GameState {
 				object = new Display();
 				break;
 			case WORLD:
+				if (startFrame != null)
+				startFrame.dispose();
 				System.out.println("bhn");
 				
 				WorldMap worldMap = new WorldMap();
@@ -33,6 +38,7 @@ public class GameState {
 				worldMap.setVisible(true);
 				worldMap.setSize(Runner.WIDTH, Runner.HEIGHT);
 				worldMap.addKeyListener(worldMap.worldPanel);
+				
 				break;
 			case FACE:
 	
