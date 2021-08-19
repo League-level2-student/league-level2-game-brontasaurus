@@ -20,7 +20,7 @@ public class GameState {
 		switch(currentState) {
 		default:
 			case START:
-				System.out.println("yhn");
+				System.out.println("creating start");
 				startFrame = new StartFrame();
 				startFrame.add(startFrame.startPanel);
 				startFrame.setVisible(true);
@@ -31,7 +31,7 @@ public class GameState {
 			case WORLD:
 				if (startFrame != null)
 				startFrame.dispose();
-				System.out.println("bhn");
+				System.out.println("creating world map");
 				
 				WorldMap worldMap = new WorldMap();
 				worldMap.add(worldMap.worldPanel);
@@ -39,6 +39,7 @@ public class GameState {
 				worldMap.setSize(Runner.WIDTH, Runner.HEIGHT);
 				worldMap.addKeyListener(worldMap.worldPanel);
 				
+				worldMap.add(object);
 				break;
 			case FACE:
 	

@@ -24,6 +24,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	public static enum gameState {START, WORLD, FACE, END} 
 	//public static gameState currentState = gameState.START;
 	//GameState geemState = new GameState();
+	BufferedImage windowWorld;
 	
 	Display() {
 		
@@ -41,11 +42,12 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	
 	void loadImage(String imageFile) {
 	    if (needImage) {
+	    	System.out.println("trying to load " + imageFile);
 	        try {
 	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
 		    gotImage = true;
 	        } catch (Exception e) {
-	            
+	            e.printStackTrace();
 	        }
 	        needImage = false;
 	    }
@@ -54,8 +56,13 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	void drawGame(Graphics g) {
 		//g.setColor(Color.GREEN);
 		//g.fillRect(0, 0, WIDTH, HEIGHT);
+		//System.out.println("drawing");
 		if (gotImage) {
-			g.drawImage(image, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
+			//g.drawImage(image, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
+			//System.out.println(Runner.user.x-Runner.WIDTH/2+" "+ Runner.user.y - Runner.HEIGHT/2 + " "+ Runner.user.x+Runner.WIDTH/2 + " " +Runner.user.y+Runner.HEIGHT/2);
+			windowWorld = image.getSubimage(Runner.user.x-Runner.WIDTH/2, Runner.user.y - Runner.HEIGHT/2,
+					Runner.user.x+Runner.WIDTH/2, Runner.user.y+Runner.HEIGHT/2);
+			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		} else {
 			g.setColor(Color.green);
 			g.fillRect(0, 0, Runner.WIDTH, Runner.HEIGHT);
@@ -65,7 +72,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	
 	@Override
 	public void paintComponent(Graphics g){
-		System.out.println("painted");
+		//System.out.println("painted");
 		drawGame(g);
 	}
 	
