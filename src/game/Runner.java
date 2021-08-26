@@ -8,7 +8,7 @@ public class Runner {
 	//Display object;
 	public static final int WIDTH = 750;
 	public static final int HEIGHT = 500;
-	public static Player user;
+	//public Player user;
 	//public static int gameState = 0;
 	public static GameState gaamState = new GameState();
 	
@@ -23,6 +23,9 @@ public class Runner {
 	
 	void setUp() {
 		
+		//user = new Player();
+		//user.x = 375;
+		//user.y = 4250;
 		//gaamState = new GameState();
 		
 		

@@ -25,9 +25,10 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	//public static gameState currentState = gameState.START;
 	//GameState geemState = new GameState();
 	BufferedImage windowWorld;
+	public Player user;
 	
 	Display() {
-		
+		user = new Player();
 		frameDraw.start();
 		//JFrame gameFrame = new StartFrame();
 		//WorldMap map = new WorldMap(); 
@@ -56,12 +57,15 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	void drawGame(Graphics g) {
 		//g.setColor(Color.GREEN);
 		//g.fillRect(0, 0, WIDTH, HEIGHT);
-		//System.out.println("drawing");
+		//System.out.println(Runner.user.x);
 		if (gotImage) {
 			//g.drawImage(image, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
-			//System.out.println(Runner.user.x-Runner.WIDTH/2+" "+ Runner.user.y - Runner.HEIGHT/2 + " "+ Runner.user.x+Runner.WIDTH/2 + " " +Runner.user.y+Runner.HEIGHT/2);
-			windowWorld = image.getSubimage(Runner.user.x-Runner.WIDTH/2, Runner.user.y - Runner.HEIGHT/2,
-					Runner.user.x+Runner.WIDTH/2, Runner.user.y+Runner.HEIGHT/2);
+			//System.out.println((Runner.user.x-(Runner.WIDTH/2))+" "+ (Runner.user.y - (Runner.HEIGHT/2)) + " "+ (Runner.user.x+(Runner.WIDTH/2)) + " " +(Runner.user.y+(Runner.HEIGHT/2)));
+			//windowWorld = image.getSubimage(Runner.user.x-Runner.WIDTH/2, Runner.user.y - Runner.HEIGHT/2,
+					//Runner.user.x+Runner.WIDTH/2, Runner.user.y+Runner.HEIGHT/2);
+			//windowWorld = image.getSubimage(375-Runner.WIDTH/2, 4250 - Runner.HEIGHT/2,
+					//375 + Runner.WIDTH/2,4250 +Runner.HEIGHT/2);
+			windowWorld = image.getSubimage(user.getX(), user.getY(), user.getX() + Runner.WIDTH , user.getY() + Runner.HEIGHT);
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		} else {
 			g.setColor(Color.green);

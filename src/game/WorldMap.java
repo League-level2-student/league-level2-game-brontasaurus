@@ -18,7 +18,7 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 	WorldMap(){
 		this.add(worldPanel);
 		worldPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		
+		worldPanel.addKeyListener(this);
 		
 	}
 
