@@ -11,11 +11,13 @@ import javax.swing.JFrame;
 
 public class WorldMap extends JFrame implements KeyListener, ActionListener{
 	
+	Player user;
+	WorldPanel worldPanel;
 	
-	WorldPanel worldPanel = new WorldPanel();
 	
-	
-	WorldMap(){
+	WorldMap(Player player){
+		user = player;
+		worldPanel = new WorldPanel(user);
 		this.add(worldPanel);
 		worldPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		worldPanel.addKeyListener(this);
@@ -37,7 +39,7 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("press");
 	}
 
 	@Override
