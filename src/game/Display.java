@@ -66,8 +66,8 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 					//Runner.user.x+Runner.WIDTH/2, Runner.user.y+Runner.HEIGHT/2);
 			//windowWorld = image.getSubimage(375-Runner.WIDTH/2, 4250 - Runner.HEIGHT/2,
 					//375 + Runner.WIDTH/2,4250 +Runner.HEIGHT/2);
-			System.out.println(player.getX() + " " + player.getY()+ " "+ (player.getX() + Runner.WIDTH) + " " + (player.getY() + Runner.HEIGHT));
-			windowWorld = image.getSubimage(player.getX(), player.getY(), player.getX() + Runner.WIDTH , player.getY() + Runner.HEIGHT);
+			//System.out.println(player.getX() + " " + player.getY()+ " "+  Runner.WIDTH + " " + Runner.HEIGHT);
+			windowWorld = image.getSubimage(player.getX(), player.getY(), Runner.WIDTH , Runner.HEIGHT);
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		} else {
 			g.setColor(Color.green);
