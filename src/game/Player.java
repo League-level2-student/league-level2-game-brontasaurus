@@ -12,8 +12,7 @@ public class Player {
 	
 Player(){
 x = 375;
-y = 250;
-	
+y = 4080;
 	
 }
 

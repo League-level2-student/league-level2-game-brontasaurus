@@ -59,6 +59,9 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		//g.setColor(Color.GREEN);
 		//g.fillRect(0, 0, WIDTH, HEIGHT);
 		//System.out.println(player.getX() + " " + player.getY());
+		g.setColor(Color.ORANGE);
+		g.drawRect(player.getX()-10, player.getY()-10, 20, 20);
+		
 		if (gotImage) {
 			//g.drawImage(image, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 			//System.out.println((Runner.user.x-(Runner.WIDTH/2))+" "+ (Runner.user.y - (Runner.HEIGHT/2)) + " "+ (Runner.user.x+(Runner.WIDTH/2)) + " " +(Runner.user.y+(Runner.HEIGHT/2)));
@@ -69,7 +72,15 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 			//System.out.println(player.getX() + " " + player.getY()+ " "+  Runner.WIDTH + " " + Runner.HEIGHT);
 			windowWorld = image.getSubimage(player.getX(), player.getY(), Runner.WIDTH , Runner.HEIGHT);
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
-		} else {
+		
+			/*g.setColor(Color.ORANGE);
+			g.drawRect(player.getX()-10, player.getY()-10, 20, 20);
+			*/
+			//g.fillRect(player.getX()-10, player.getY()-10, 20, 20);
+			
+		} 
+		
+		else {
 			g.setColor(Color.green);
 			g.fillRect(0, 0, Runner.WIDTH, Runner.HEIGHT);
 		}
