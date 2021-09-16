@@ -12,10 +12,11 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	
 	
 	
-	int keyPressed = 0;
+	int h = 0;
+	int v = 0;
 	//boolean isPressed = false;
 	Player user;
-	int speed = 5;
+	int speed = 3;
 	Timer timer = new Timer(1000/60, this);
 	WorldPanel(Player player){
 		user = player;
@@ -33,24 +34,27 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			keyPressed = KeyEvent.VK_LEFT;
+			h = KeyEvent.VK_LEFT;
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			keyPressed = KeyEvent.VK_RIGHT;
+			h = KeyEvent.VK_RIGHT;
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_UP) {
-			keyPressed = KeyEvent.VK_UP;
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			v = KeyEvent.VK_UP;
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			keyPressed = KeyEvent.VK_DOWN;
+			v = KeyEvent.VK_DOWN;
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		if (keyPressed == e.getKeyCode()) {
-			keyPressed = 0;
+		if (h == e.getKeyCode()) {
+			h = 0;
+		}
+		if (v == e.getKeyCode()) {
+			v = 0;
 		}
 	}
 
@@ -60,19 +64,24 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		// TODO Auto-generated method stub
 		//System.out.println("action");
 		//System.out.println(user.getX() + " " + user.getY());
-		if (keyPressed != 0) {
-			switch(keyPressed) {
-			case KeyEvent.VK_LEFT:
-				user.setX(user.getX() - speed);
-			break;
-			case KeyEvent.VK_RIGHT:
-				user.setX(user.getX() + speed);
-			break;
+		if (v != 0) {
+			switch(v) {
 			case KeyEvent.VK_UP:
 				user.setY(user.getY() - speed);
 			break;
 			case KeyEvent.VK_DOWN:
 				user.setY(user.getY() + speed);
+			break;
+			
+			}
+		}
+		if (h != 0) {
+			switch(h) {
+			case KeyEvent.VK_LEFT:
+				user.setX(user.getX() - speed);
+			break;
+			case KeyEvent.VK_RIGHT:
+				user.setX(user.getX() + speed);
 			break;
 			
 			}

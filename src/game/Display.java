@@ -23,6 +23,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	Timer frameDraw = new Timer(1000/60,this);
 	Player player;
 	public static enum gameState {START, WORLD, FACE, END} 
+	
 	//public static gameState currentState = gameState.START;
 	//GameState geemState = new GameState();
 	BufferedImage windowWorld;
@@ -58,9 +59,9 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	void drawGame(Graphics g) {
 		//g.setColor(Color.GREEN);
 		//g.fillRect(0, 0, WIDTH, HEIGHT);
-		//System.out.println(player.getX() + " " + player.getY());
-		g.setColor(Color.ORANGE);
-		g.drawRect(player.getX()-10, player.getY()-10, 20, 20);
+System.out.println(player.getX() + " " + player.getY());
+		
+		
 		
 		if (gotImage) {
 			//g.drawImage(image, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
@@ -73,9 +74,8 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 			windowWorld = image.getSubimage(player.getX(), player.getY(), Runner.WIDTH , Runner.HEIGHT);
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		
-			/*g.setColor(Color.ORANGE);
-			g.drawRect(player.getX()-10, player.getY()-10, 20, 20);
-			*/
+			g.setColor(Color.ORANGE);
+			g.fillRect(365, 240, 20, 20);
 			//g.fillRect(player.getX()-10, player.getY()-10, 20, 20);
 			
 		} 

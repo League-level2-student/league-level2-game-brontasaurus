@@ -3,10 +3,10 @@ package game;
 public class Player {
 	int x;
 	int y;
-	
+	int speed = 3;
 	final int minX = 375;
 	final int minY = 250;
-	final int maxX = 7125;
+	final int maxX = 6750;
 	final int maxY = 4250;
 	
 	
@@ -23,7 +23,7 @@ int getX() {
 }
 
 void setX(int s) {
-	if (s >= minX && s <= maxX) {
+	if (s >= minX + speed && s < maxX - speed) {
 	x = s;
 	}
 }
@@ -33,7 +33,7 @@ int getY() {
 }
 
 void setY(int i) {
-	if (i >= minY && i <= maxY) {
+	if (i >= minY + speed && i <= maxY - speed) {
 	y = i;
 	}
 }
