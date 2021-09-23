@@ -3,15 +3,17 @@ package game;
 public class Player {
 	int x;
 	int y;
-	int speed = 3;
+	int speed = 4;
 	final int minX = 375;
 	final int minY = 250;
 	final int maxX = 6750;
 	final int maxY = 4250;
+	final int depth = 10;
+	final int dimention = 10;
 	
 	
 Player(){
-x = 375;
+x = 609;
 y = 4080;
 	
 }

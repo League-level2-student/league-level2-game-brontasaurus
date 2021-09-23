@@ -24,6 +24,18 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	}
 	
 	
+	boolean checkCollision(int a, int b) {
+		if((a > 600) && (a < 700) && (b > 3300) && (b < 3400)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+		
+		
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -64,13 +76,19 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		// TODO Auto-generated method stub
 		//System.out.println("action");
 		//System.out.println(user.getX() + " " + user.getY());
+		if (!checkCollision(user.getX(), user.getY())) {
 		if (v != 0) {
+			
 			switch(v) {
 			case KeyEvent.VK_UP:
+				if (!checkCollision(user.getX(), user.getY()-speed)) {
 				user.setY(user.getY() - speed);
+				}
 			break;
 			case KeyEvent.VK_DOWN:
+				if (!checkCollision(user.getX(), user.getY()+speed)) {
 				user.setY(user.getY() + speed);
+				}
 			break;
 			
 			}
@@ -78,14 +96,22 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		if (h != 0) {
 			switch(h) {
 			case KeyEvent.VK_LEFT:
+				if (!checkCollision(user.getX() - speed, user.getY())) {
 				user.setX(user.getX() - speed);
+				}
 			break;
 			case KeyEvent.VK_RIGHT:
+				if (!checkCollision(user.getX() + speed, user.getY())) {
 				user.setX(user.getX() + speed);
+				}
 			break;
 			
 			}
 		}
+		}
+		
+		
+		
 		
 	}
 
