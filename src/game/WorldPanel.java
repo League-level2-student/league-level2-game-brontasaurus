@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -16,16 +19,26 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	int v = 0;
 	//boolean isPressed = false;
 	Player user;
+	public static BufferedImage collisionImage;
 	int speed = 3;
 	Timer timer = new Timer(1000/60, this);
 	WorldPanel(Player player){
 		user = player;
 		timer.start();
+		try {
+			collisionImage = ImageIO.read(this.getClass().getResourceAsStream("collision1.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
 	boolean checkCollision(int a, int b) {
-		if((a > 600) && (a < 700) && (b > 3300) && (b < 3400)) {
+		int pixel = collisionImage.getRGB(user.getX() + (WIDTH/2), user.getY()+ (HEIGHT/2)) & 0x00ffffff;
+		System.out.println(pixel);
+		if(pixel == 0) {
+			
 			return true;
 		}
 		else {

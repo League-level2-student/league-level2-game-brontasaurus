@@ -39,7 +39,8 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		//gameFrame.setVisible(true);
 		//gameFrame.pack();
 		if (needImage) {
-	        loadImage ("WorldMap1.jpg");
+	        //loadImage ("WorldMap1.jpg");
+			loadImage ("collision1.jpg");
 		}
 	}
 	
@@ -48,6 +49,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	    	System.out.println("trying to load " + imageFile);
 	        try {
 	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+	           
 		    gotImage = true;
 	        } catch (Exception e) {
 	            e.printStackTrace();
