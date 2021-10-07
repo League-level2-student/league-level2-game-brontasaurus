@@ -35,7 +35,7 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	
 	
 	boolean checkCollision(int a, int b) {
-		int pixel = collisionImage.getRGB(user.getX() + (WIDTH/2), user.getY()+ (HEIGHT/2)) & 0x00ffffff;
+		int pixel = collisionImage.getRGB(a, b) & 0x00ffffff;
 		System.out.println(pixel);
 		if(pixel == 0) {
 			

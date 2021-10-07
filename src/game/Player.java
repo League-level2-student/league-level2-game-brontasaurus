@@ -13,7 +13,7 @@ public class Player {
 	
 	
 Player(){
-x = 609;
+x = 1030;
 y = 4080;
 	
 }

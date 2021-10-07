@@ -39,8 +39,8 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		//gameFrame.setVisible(true);
 		//gameFrame.pack();
 		if (needImage) {
-	        //loadImage ("WorldMap1.jpg");
-			loadImage ("collision1.jpg");
+	        loadImage ("WorldMap1.jpg");
+			//loadImage ("collision1.jpg");
 		}
 	}
 	
@@ -73,7 +73,7 @@ System.out.println(player.getX() + " " + player.getY());
 			//windowWorld = image.getSubimage(375-Runner.WIDTH/2, 4250 - Runner.HEIGHT/2,
 					//375 + Runner.WIDTH/2,4250 +Runner.HEIGHT/2);
 			//System.out.println(player.getX() + " " + player.getY()+ " "+  Runner.WIDTH + " " + Runner.HEIGHT);
-			windowWorld = image.getSubimage(player.getX(), player.getY(), Runner.WIDTH , Runner.HEIGHT);
+			windowWorld = image.getSubimage(player.getX()-(Runner.WIDTH/2), player.getY()-(Runner.HEIGHT/2), Runner.WIDTH , Runner.HEIGHT);
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		
 			g.setColor(Color.ORANGE);
