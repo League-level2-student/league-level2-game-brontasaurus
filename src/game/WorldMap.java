@@ -13,6 +13,7 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 	
 	Player user;
 	WorldPanel worldPanel;
+	ShopPanel shopPanel;
 	
 	
 	WorldMap(Player player){
@@ -22,6 +23,11 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 		worldPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		worldPanel.addKeyListener(this);
 		
+	}
+	
+	void shopDisplay(){
+		shopPanel = new ShopPanel();
+		this.add(shopPanel);
 	}
 
 	@Override

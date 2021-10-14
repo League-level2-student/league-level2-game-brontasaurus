@@ -26,28 +26,53 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		user = player;
 		timer.start();
 		try {
-			collisionImage = ImageIO.read(this.getClass().getResourceAsStream("collision1.jpg"));
+			collisionImage = ImageIO.read(this.getClass().getResourceAsStream("collisionC.jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	
+	//returns true if touching not white
 	boolean checkCollision(int a, int b) {
 		int pixel = collisionImage.getRGB(a, b) & 0x00ffffff;
-		System.out.println(pixel);
-		if(pixel == 0) {
-			
+		//System.out.println(pixel);
+		if(pixel != 0x00ffffff) {
 			return true;
 		}
 		else {
 			return false;
 		}
 		
-		
-		
 	}
+	
+	
+	int sealision(int a, int b) {
+		int pixel = collisionImage.getRGB(a, b) & 0x00ffffff;
+		switch(pixel) {
+		case 0xfff200:
+			return 1;
+			
+		case 0xff000:
+			return 2;
+			
+		case 0x1500ff:
+			return 3;
+			
+		case 0xff00ff:
+			return 4;
+			
+		case 0x55ff00:
+			return 5;
+			
+		case 0x00aaff:
+			return 6;
+			
+		}
+		
+		return 0;
+	}
+	
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -90,6 +115,30 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		//System.out.println("action");
 		//System.out.println(user.getX() + " " + user.getY());
 		if (!checkCollision(user.getX(), user.getY())) {
+			
+			switch(sealision(user.getX(), user.getY())) {
+			
+			case 1:
+				
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+			case 6:
+				
+				break;
+			
+			}
+			
 		if (v != 0) {
 			
 			switch(v) {

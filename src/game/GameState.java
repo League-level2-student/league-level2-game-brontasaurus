@@ -4,6 +4,7 @@ public class GameState {
 	private Display.gameState currentState;
 	Display object;
 	StartFrame startFrame = null;
+	WorldMap worldMap = null;
 	public Player user;
 	public Display.gameState getCurrentState () {
 		return currentState;
@@ -24,6 +25,7 @@ public class GameState {
 		
 		switch(currentState) {
 		default:
+			
 			case START:
 				System.out.println("creating start");
 				startFrame = new StartFrame();
@@ -38,7 +40,7 @@ public class GameState {
 				startFrame.dispose();
 				System.out.println("creating world map");
 				
-				WorldMap worldMap = new WorldMap(user);
+				worldMap = new WorldMap(user);
 				worldMap.add(worldMap.worldPanel);
 				worldMap.setVisible(true);
 				worldMap.setSize(Runner.WIDTH, Runner.HEIGHT);
@@ -47,7 +49,7 @@ public class GameState {
 				worldMap.add(object);
 				break;
 			case FACE:
-	
+				worldMap.shopDisplay();
 				break;
 			case END:
 	

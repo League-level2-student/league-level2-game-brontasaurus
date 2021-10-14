@@ -39,8 +39,8 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		//gameFrame.setVisible(true);
 		//gameFrame.pack();
 		if (needImage) {
-	        loadImage ("WorldMap1.jpg");
-			//loadImage ("collision1.jpg");
+	        //loadImage ("WorldMap1.jpg");
+			loadImage ("collisionC.jpg");
 		}
 	}
 	
