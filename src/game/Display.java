@@ -61,7 +61,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	void drawGame(Graphics g) {
 		//g.setColor(Color.GREEN);
 		//g.fillRect(0, 0, WIDTH, HEIGHT);
-System.out.println(player.getX() + " " + player.getY());
+//System.out.println(player.getX() + " " + player.getY());
 		
 		
 		

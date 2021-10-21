@@ -49,6 +49,7 @@ public class GameState {
 				worldMap.add(object);
 				break;
 			case FACE:
+				System.out.println("shop face showing");
 				worldMap.shopDisplay();
 				break;
 			case END:

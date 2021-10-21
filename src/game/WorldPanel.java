@@ -14,7 +14,7 @@ import javax.swing.Timer;
 public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	
 	
-	
+	int store = 0;
 	int h = 0;
 	int v = 0;
 	//boolean isPressed = false;
@@ -38,9 +38,12 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		int pixel = collisionImage.getRGB(a, b) & 0x00ffffff;
 		//System.out.println(pixel);
 		if(pixel != 0x00ffffff) {
+			store = sealision(a, b);
+			
 			return true;
 		}
 		else {
+			store = 0;
 			return false;
 		}
 		
@@ -49,11 +52,15 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	
 	int sealision(int a, int b) {
 		int pixel = collisionImage.getRGB(a, b) & 0x00ffffff;
+		System.out.println(String.format("0x%08X", pixel));
 		switch(pixel) {
-		case 0xfff200:
+		//yellow
+		case 0x00FEF200:
+			System.out.println("yellow");
 			return 1;
 			
-		case 0xff000:
+		//red
+		case 0x00FFFFFB:
 			return 2;
 			
 		case 0x1500ff:
@@ -114,67 +121,85 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		// TODO Auto-generated method stub
 		//System.out.println("action");
 		//System.out.println(user.getX() + " " + user.getY());
-		if (!checkCollision(user.getX(), user.getY())) {
-			
-			switch(sealision(user.getX(), user.getY())) {
-			
-			case 1:
+		//if (!checkCollision(user.getX(), user.getY())) {
+			if (v != 0) {
 				
+				switch(v) {
+				case KeyEvent.VK_UP:
+					if (!checkCollision(user.getX(), user.getY()-speed)) {
+					user.setY(user.getY() - speed);
+					}
+					else {
+						checkShop();
+					}
 				break;
-			case 2:
+				case KeyEvent.VK_DOWN:
+					if (!checkCollision(user.getX(), user.getY()+speed)) {
+					user.setY(user.getY() + speed);
+					}
+					else {
+						checkShop();
+					}
+				break;
 				
+				}
+			}
+			if (h != 0) {
+				switch(h) {
+				case KeyEvent.VK_LEFT:
+					if (!checkCollision(user.getX() - speed, user.getY())) {
+					user.setX(user.getX() - speed);
+					}
+					else {
+						checkShop();
+					}
 				break;
-			case 3:
+				case KeyEvent.VK_RIGHT:
+					if (!checkCollision(user.getX() + speed, user.getY())) {
+					user.setX(user.getX() + speed);
+					}
+					else {
+						checkShop();
+					}
+				break;
 				
-				break;
-			case 4:
-				
-				break;
-			case 5:
-				
-				break;
-			case 6:
-				
-				break;
-			
+				}
 			}
 			
-		if (v != 0) {
 			
-			switch(v) {
-			case KeyEvent.VK_UP:
-				if (!checkCollision(user.getX(), user.getY()-speed)) {
-				user.setY(user.getY() - speed);
-				}
-			break;
-			case KeyEvent.VK_DOWN:
-				if (!checkCollision(user.getX(), user.getY()+speed)) {
-				user.setY(user.getY() + speed);
-				}
-			break;
-			
-			}
-		}
-		if (h != 0) {
-			switch(h) {
-			case KeyEvent.VK_LEFT:
-				if (!checkCollision(user.getX() - speed, user.getY())) {
-				user.setX(user.getX() - speed);
-				}
-			break;
-			case KeyEvent.VK_RIGHT:
-				if (!checkCollision(user.getX() + speed, user.getY())) {
-				user.setX(user.getX() + speed);
-				}
-			break;
-			
-			}
-		}
-		}
+	}
+	
+	public void checkShop() {
+		System.out.println("colliding");
+		switch(store) {
 		
+		case 1:
+			System.out.println("shop");
+			Runner.gaamState.setCurrentState(Display.gameState.FACE);
+			break;
+		case 2:
+			
+			break;
+		case 3:
+			
+			break;
+		case 4:
+			
+			break;
+		case 5:
+			
+			break;
+		case 6:
+			
+			break;
+		
+		}
+	}
+			
+
 		
 		
 		
 	}
 
-}
+
