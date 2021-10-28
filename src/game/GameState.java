@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Dimension;
+
 public class GameState {
 	private Display.gameState currentState;
 	Display object;
@@ -50,7 +52,11 @@ public class GameState {
 				break;
 			case FACE:
 				System.out.println("shop face showing");
+				
 				worldMap.shopDisplay();
+				worldMap.shopPanel.setUp();
+				worldMap.shopPanel.setVisible(true);
+				worldMap.shopPanel.setPreferredSize(new Dimension(Runner.WIDTH, Runner.HEIGHT));
 				break;
 			case END:
 	

@@ -122,6 +122,7 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		//System.out.println("action");
 		//System.out.println(user.getX() + " " + user.getY());
 		//if (!checkCollision(user.getX(), user.getY())) {
+		if (Runner.gaamState.getCurrentState() == Display.gameState.WORLD) {
 			if (v != 0) {
 				
 				switch(v) {
@@ -165,7 +166,8 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 				
 				}
 			}
-			
+		}
+		
 			
 	}
 	

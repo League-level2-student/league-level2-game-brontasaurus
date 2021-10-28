@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -12,19 +13,33 @@ public class ShopPanel extends JPanel implements KeyListener{
 	String message = "Player - Have you seen a goose around here by any chance?";
 	int line = 0;
 	JButton dialogButton = new JButton();
+	JLabel textBox = new JLabel();
+	
+	
 	
 	void displayDialog() {
-		JOptionPane.showMessageDialog(null, message);
+		
+		textBox.setText(message);
+		System.out.println("message shown");
+	}
+	
+	void drawShop() {
+		this.add(textBox);
+		this.setVisible(true);
+		displayDialog();
 	}
 	
 	void setUp() {
-		this.add(dialogButton);
+		//this.add(dialogButton);
+		//this.add(textBox);
+		//this.setVisible(true);
 		displayDialog();
 	}
 	
 	
 
 	@Override
+	
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {

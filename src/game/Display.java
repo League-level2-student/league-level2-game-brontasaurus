@@ -66,20 +66,16 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		
 		
 		if (gotImage) {
-			//g.drawImage(image, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
-			//System.out.println((Runner.user.x-(Runner.WIDTH/2))+" "+ (Runner.user.y - (Runner.HEIGHT/2)) + " "+ (Runner.user.x+(Runner.WIDTH/2)) + " " +(Runner.user.y+(Runner.HEIGHT/2)));
-			//windowWorld = image.getSubimage(Runner.user.x-Runner.WIDTH/2, Runner.user.y - Runner.HEIGHT/2,
-					//Runner.user.x+Runner.WIDTH/2, Runner.user.y+Runner.HEIGHT/2);
-			//windowWorld = image.getSubimage(375-Runner.WIDTH/2, 4250 - Runner.HEIGHT/2,
-					//375 + Runner.WIDTH/2,4250 +Runner.HEIGHT/2);
-			//System.out.println(player.getX() + " " + player.getY()+ " "+  Runner.WIDTH + " " + Runner.HEIGHT);
+
 			windowWorld = image.getSubimage(player.getX()-(Runner.WIDTH/2), player.getY()-(Runner.HEIGHT/2), Runner.WIDTH , Runner.HEIGHT);
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		
 			g.setColor(Color.ORANGE);
 			g.fillRect(365, 240, 20, 20);
 			//g.fillRect(player.getX()-10, player.getY()-10, 20, 20);
-			
+			/*if (Runner.gaamState.getCurrentState() == Display.gameState.FACE) {
+			Runner.gaamState.worldMap.shopPanel.drawShop();
+			}*/
 		} 
 		
 		else {
@@ -93,6 +89,10 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	public void paintComponent(Graphics g){
 		//System.out.println("painted");
 		drawGame(g);
+		
+		if (Runner.gaamState.getCurrentState() == Display.gameState.FACE) {
+			Runner.gaamState.worldMap.shopPanel.drawShop();
+		}
 	}
 	
 
