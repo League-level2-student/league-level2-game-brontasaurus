@@ -91,7 +91,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		drawGame(g);
 		
 		if (Runner.gaamState.getCurrentState() == Display.gameState.FACE) {
-			Runner.gaamState.worldMap.shopPanel.drawShop();
+			Runner.gaamState.worldMap.shopPanel.drawShop(g);
 		}
 	}
 	

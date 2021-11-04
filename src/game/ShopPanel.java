@@ -1,8 +1,13 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -14,6 +19,9 @@ public class ShopPanel extends JPanel implements KeyListener{
 	int line = 0;
 	JButton dialogButton = new JButton();
 	JLabel textBox = new JLabel();
+	public static boolean needImage = true;
+	public static boolean gotImage = false;	
+	public static BufferedImage shopImage;
 	
 	
 	
@@ -23,10 +31,21 @@ public class ShopPanel extends JPanel implements KeyListener{
 		System.out.println("message shown");
 	}
 	
-	void drawShop() {
-		this.add(textBox);
-		this.setVisible(true);
-		displayDialog();
+	void drawShop(Graphics g) {
+		if (gotImage) {
+			g.drawImage(shopImage, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
+		}
+		g.setColor(new Color(180, 180, 180, 225));
+		g.fillRoundRect(5, 400, (Runner.WIDTH-23), 60, 10, 10);
+		g.setColor(new Color(180, 180, 180, 255));
+		g.drawRoundRect(5, 400, (Runner.WIDTH-23), 60, 10, 10);
+		Font myFont = new Font("Monospaced", Font.BOLD, 20);
+		g.setColor(Color.white);
+		g.setFont(myFont);
+		g.drawString(message, 15, 420);
+		//this.add(textBox);
+		//this.setVisible(true);
+		//displayDialog();
 	}
 	
 	void setUp() {
@@ -34,9 +53,23 @@ public class ShopPanel extends JPanel implements KeyListener{
 		//this.add(textBox);
 		//this.setVisible(true);
 		displayDialog();
+		loadShopImage("face-draft.jpg");
+		
 	}
 	
-	
+	void loadShopImage(String imageFile) {
+	    if (needImage) {
+	    	System.out.println("trying to load " + imageFile);
+	        try {
+	            shopImage = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+	           
+		    gotImage = true;
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        needImage = false;
+	    }
+	}
 
 	@Override
 	
