@@ -75,6 +75,19 @@ public class ShopPanel extends JPanel implements KeyListener{
 	
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println();
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 		line++;
 		
@@ -94,22 +107,13 @@ public class ShopPanel extends JPanel implements KeyListener{
 		case 4:
 		message = "Player - Ok! thank you";
 		break;
+		case 5:
+			
+		break;
 		}
 		displayDialog();
 		
 		}
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	

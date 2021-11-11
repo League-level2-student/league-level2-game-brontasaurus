@@ -29,6 +29,8 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 		shopPanel = new ShopPanel();
 		this.add(shopPanel);
 		//this.pack();
+		shopPanel.addKeyListener(this);
+		shopPanel.requestFocus();
 	}
 
 	@Override
@@ -52,6 +54,8 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		System.out.println("Shop Key Released");
+		shopPanel.keyReleased(e);
 		
 	}
 	
