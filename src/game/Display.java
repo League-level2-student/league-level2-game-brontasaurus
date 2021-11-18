@@ -22,7 +22,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	public static boolean gotImage = false;	
 	Timer frameDraw = new Timer(1000/60,this);
 	Player player;
-	public static enum gameState {START, WORLD, FACE, END} 
+	public static enum gameState {START, WORLD, RETURN_TO_WORLD, FACE, END} 
 	
 	//public static gameState currentState = gameState.START;
 	//GameState geemState = new GameState();

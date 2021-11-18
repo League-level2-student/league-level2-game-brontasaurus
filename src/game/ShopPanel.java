@@ -42,10 +42,22 @@ public class ShopPanel extends JPanel implements KeyListener{
 		Font myFont = new Font("Monospaced", Font.BOLD, 20);
 		g.setColor(Color.white);
 		g.setFont(myFont);
+		
+		if (message.contains("\n")) {
+			System.out.println("message entering");
+			int beginIndex = message.indexOf("\n");
+			String messageTwo = message.substring(beginIndex + 2, message.length());
+			String messageOne = message.substring(0, beginIndex);
+			//System.out.println(messageOne + " " + messageTwo);
+			g.drawString(messageOne, 15, 420);
+			g.drawString(messageTwo, 15, 440);
+		}
+		else {
 		g.drawString(message, 15, 420);
 		//this.add(textBox);
 		//this.setVisible(true);
 		//displayDialog();
+	}
 	}
 	
 	void setUp() {
@@ -102,13 +114,14 @@ public class ShopPanel extends JPanel implements KeyListener{
 		message = "Player - That's alright";
 		break;
 		case 3:
-		message = "Shop keep - [other person's name] from up the road might've seen something, try asking him";
+		message = "Shop keep - Madeline from up the road might've seen \n something, try asking her";
 		break;
 		case 4:
 		message = "Player - Ok! thank you";
 		break;
 		case 5:
-			
+		Runner.gaamState.user.setX(Runner.gaamState.user.getX()+20);
+		Runner.gaamState.setCurrentState(Display.gameState.RETURN_TO_WORLD);
 		break;
 		}
 		displayDialog();

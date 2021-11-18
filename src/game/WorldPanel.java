@@ -122,7 +122,8 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		//System.out.println("action");
 		//System.out.println(user.getX() + " " + user.getY());
 		//if (!checkCollision(user.getX(), user.getY())) {
-		if (Runner.gaamState.getCurrentState() == Display.gameState.WORLD) {
+		if (Runner.gaamState.getCurrentState() == Display.gameState.WORLD || 
+				Runner.gaamState.getCurrentState() == Display.gameState.RETURN_TO_WORLD) {
 			if (v != 0) {
 				
 				switch(v) {
@@ -172,6 +173,8 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	}
 	
 	public void checkShop() {
+		h = 0;
+		v = 0;
 		System.out.println("colliding");
 		switch(store) {
 		

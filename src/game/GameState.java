@@ -33,9 +33,11 @@ public class GameState {
 				startFrame = new StartFrame();
 				startFrame.add(startFrame.startPanel);
 				startFrame.setVisible(true);
-				startFrame.setSize(Runner.WIDTH, Runner.HEIGHT);
+				startFrame.pack();
+				startFrame.setSize(Runner.WIDTH + 12, Runner.HEIGHT+35);
 				startFrame.addKeyListener(startFrame.startPanel);
 				object = new Display(user);
+				
 				break;
 			case WORLD:
 				if (startFrame != null)
@@ -45,10 +47,16 @@ public class GameState {
 				worldMap = new WorldMap(user);
 				worldMap.add(worldMap.worldPanel);
 				worldMap.setVisible(true);
-				worldMap.setSize(Runner.WIDTH, Runner.HEIGHT);
+				worldMap.pack();
+				worldMap.setSize(Runner.WIDTH + 12, Runner.HEIGHT+35);
 				worldMap.addKeyListener(worldMap.worldPanel);
 				
 				worldMap.add(object);
+				
+				break;
+			case RETURN_TO_WORLD:
+				worldMap.remove(worldMap.shopPanel);
+				worldMap.requestFocus();
 				break;
 			case FACE:
 				System.out.println("shop face showing");
@@ -57,6 +65,7 @@ public class GameState {
 				worldMap.shopPanel.setUp();
 				worldMap.shopPanel.setVisible(true);
 				worldMap.shopPanel.setPreferredSize(new Dimension(Runner.WIDTH, Runner.HEIGHT));
+				
 				break;
 			case END:
 	
