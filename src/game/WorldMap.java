@@ -26,7 +26,7 @@ public class WorldMap extends JFrame implements KeyListener, ActionListener{
 	}
 	
 	void shopDisplay(){
-		shopPanel = new ShopPanel();
+		shopPanel = new ShopPanel(worldPanel.store);
 		this.add(shopPanel);
 		//this.pack();
 		shopPanel.addKeyListener(this);

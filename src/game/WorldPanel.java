@@ -60,10 +60,13 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 			return 1;
 			
 		//red
-		case 0x00FFFFFB:
+		//case 0x00FFFFFB:
+		case 0x00FEFEFC:
+			System.out.println("red");
 			return 2;
 			
-		case 0x1500ff:
+		case 0x00FFFEFF:
+			System.out.println("blue");
 			return 3;
 			
 		case 0xff00ff:
@@ -76,7 +79,7 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 			return 6;
 			
 		}
-		
+		System.out.println("not shop");
 		return 0;
 	}
 	
@@ -176,29 +179,11 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		h = 0;
 		v = 0;
 		System.out.println("colliding");
-		switch(store) {
-		
-		case 1:
-			System.out.println("shop");
-			Runner.gaamState.setCurrentState(Display.gameState.FACE);
-			break;
-		case 2:
-			
-			break;
-		case 3:
-			
-			break;
-		case 4:
-			
-			break;
-		case 5:
-			
-			break;
-		case 6:
-			
-			break;
-		
+
+		if (store > 0) {
+		Runner.gaamState.setCurrentState(Display.gameState.FACE);
 		}
+			
 	}
 			
 
