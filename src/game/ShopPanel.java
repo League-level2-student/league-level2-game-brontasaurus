@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 public class ShopPanel extends JPanel implements KeyListener{
 
-	int key = 0;
+	
 	int shop = 0;
 	String message = "[NEED TO SET STRING]";
 	int line = 0;
@@ -73,29 +73,29 @@ public class ShopPanel extends JPanel implements KeyListener{
 		//this.setVisible(true);
 		displayDialog();
 		
-		switch(shop + key) {
+		switch(shop + Runner.gaamState.key) {
 		case 1:
-			loadShopImage("face-draft.jpg");
+			loadShopImage("shopkeep.jpg");
 			message = "Player - Have you seen a goose around here by any chance?";
 			break;
 		case 2:
-			loadShopImage("face-draft.jpg");
+			loadShopImage("madeline.jpg");
 			message = "Player - Hello! Have you seen a goose run by here?";
 			break;
 		case 3:
-			loadShopImage("face-draft.jpg");
+			loadShopImage("fisherman.jpg");
 			message = "Player - Hey did the goose run by here?";
 			break;
 		case 4:
-			loadShopImage("face-draft.jpg");
-			message = "Player - Hey a goose is in your barn and it stole my sandwitch, can I have the key to get in?";
+			loadShopImage("farmer-face.jpg");
+			message = "Player - Hey a goose is in your barn and it stole my \n sandwitch, can I have the key to get in?";
 			break;
 		case 5:
-			loadShopImage("face-draft.jpg");
-			message = "Farmer's Note - The door is locked! I'm out in the field if you need me";
+			loadShopImage("barn-1.jpg");
+			message = "Farmer's Note - The door is locked! I'm out in the field \n if you need me";
 			break;
-		case 15:
-			loadShopImage("face-draft.jpg");
+		case 16:
+			loadShopImage("barn-2.jpg");
 			message = "Hey! Goose! Give me back my sandwitch!";
 			break;
 		
@@ -106,7 +106,7 @@ public class ShopPanel extends JPanel implements KeyListener{
 	}
 	
 	void loadShopImage(String imageFile) {
-	    if (needImage) {
+	   // if (needImage) {
 	    	System.out.println("trying to load " + imageFile);
 	        try {
 	            shopImage = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
@@ -116,7 +116,8 @@ public class ShopPanel extends JPanel implements KeyListener{
 	            e.printStackTrace();
 	        }
 	        needImage = false;
-	    }
+	   // }
+	    
 	}
 
 	@Override
@@ -135,11 +136,11 @@ public class ShopPanel extends JPanel implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(shop + " " + key + " " + line);
+		System.out.println(shop + " " + Runner.gaamState.key + " " + line);
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 		line++;
 	
-		switch(line + (shop*10) + (key*10)) {
+		switch(line + (shop*10) + (Runner.gaamState.key)) {
 		case 10:
 		message = "Player - Have you seen a goose around here by any chance?";
 		break;
@@ -156,7 +157,8 @@ public class ShopPanel extends JPanel implements KeyListener{
 		message = "Player - Ok! thank you";
 		break;
 		case 15:
-		Runner.gaamState.user.setX(Runner.gaamState.user.getX()+20);
+		Runner.gaamState.user.setX(873);
+		Runner.gaamState.user.setY(3390);
 		Runner.gaamState.setCurrentState(Display.gameState.RETURN_TO_WORLD);
 		break;
 		case 20:
@@ -175,7 +177,8 @@ public class ShopPanel extends JPanel implements KeyListener{
 		message = "Player - I'll ask him, thank you";
 		break;
 		case 25:
-		Runner.gaamState.user.setX(Runner.gaamState.user.getX()-20);
+		Runner.gaamState.user.setX(627);
+		Runner.gaamState.user.setY(2196);
 		Runner.gaamState.setCurrentState(Display.gameState.RETURN_TO_WORLD);
 		break;
 		case 30:
@@ -191,25 +194,29 @@ public class ShopPanel extends JPanel implements KeyListener{
 		message = "Jeremy - Anytime. Good luck!";
 		break;
 		case 34:
-		Runner.gaamState.user.setX(Runner.gaamState.user.getY()-20);
+		Runner.gaamState.user.setX(3297);
+		Runner.gaamState.user.setY(1287);
 		Runner.gaamState.setCurrentState(Display.gameState.RETURN_TO_WORLD);
 		break;
 		case 40:
 		message = "Player - Hey a goose is in your barn and it stole my sandwitch, can I have the key to get in?";
 		break;
 		case 41:
-		message = "Farmer - Oh sure! The geese around here are brutal huh. Good luck getting your sandwitch";
+		message = "Farmer - Oh sure! The geese around here are brutal huh. \n Good luck getting your sandwitch";
 		break;
 		case 42:
-		Runner.gaamState.user.setX(Runner.gaamState.user.getX()+20);
+		Runner.gaamState.user.setX(4845);
+		Runner.gaamState.user.setY(3657);
+	
 		Runner.gaamState.setCurrentState(Display.gameState.RETURN_TO_WORLD);
-		key = 10;
+		Runner.gaamState.key = 10;
 		break;
 		case 50:
 		message = "Farmer's Note - The door is locked! I'm out in the field if you need me";
 		break;
-		case 51:
-		Runner.gaamState.user.setX(Runner.gaamState.user.getX()+20);
+		case 51: 
+			Runner.gaamState.user.setX(5478);
+			Runner.gaamState.user.setY(1194);
 		Runner.gaamState.setCurrentState(Display.gameState.RETURN_TO_WORLD);
 		break;
 		case 60:

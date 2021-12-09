@@ -20,13 +20,13 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	//boolean isPressed = false;
 	Player user;
 	public static BufferedImage collisionImage;
-	int speed = 3;
+	int speed = 10;
 	Timer timer = new Timer(1000/60, this);
 	WorldPanel(Player player){
 		user = player;
 		timer.start();
 		try {
-			collisionImage = ImageIO.read(this.getClass().getResourceAsStream("collisionC.jpg"));
+			collisionImage = ImageIO.read(this.getClass().getResourceAsStream("Collision.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,28 +55,31 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		System.out.println(String.format("0x%08X", pixel));
 		switch(pixel) {
 		//yellow
-		case 0x00FEF200:
-			System.out.println("yellow");
+		case 0x000C01FF:
+			System.out.println("blue");
 			return 1;
 			
 		//red
 		//case 0x00FFFFFB:
-		case 0x00FEFEFC:
-			System.out.println("red");
+		case 0x00FF00F4:
+			System.out.println("pink");
 			return 2;
 			
-		case 0x00FFFEFF:
-			System.out.println("blue");
+		case 0x0000FF05:
+			System.out.println("green");
 			return 3;
 			
-		case 0xff00ff:
+		case 0x00FE0C00:
+			System.out.println("red");
 			return 4;
 			
-		case 0x55ff00:
+		case 0x00EBFF00:
+			if (Runner.gaamState.key == 10) {
+			return 6;
+			}
 			return 5;
 			
-		case 0x00aaff:
-			return 6;
+
 			
 		}
 		System.out.println("not shop");
@@ -181,6 +184,7 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 		System.out.println("colliding");
 
 		if (store > 0) {
+			System.out.println("check shop store = " + store);
 		Runner.gaamState.setCurrentState(Display.gameState.FACE);
 		}
 			

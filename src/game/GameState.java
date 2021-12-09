@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 public class GameState {
 	private Display.gameState currentState;
+	public int key = 0;
 	Display object;
 	StartFrame startFrame = null;
 	WorldMap worldMap = null;
