@@ -13,7 +13,7 @@ import javax.swing.Timer;
 
 public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	
-	
+	public int rotation = 0;
 	int store = 0;
 	int h = 0;
 	int v = 0;
@@ -151,6 +151,7 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 				break;
 				
 				}
+				
 			}
 			if (h != 0) {
 				switch(h) {
@@ -173,6 +174,33 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 				
 				}
 			}
+			
+			if (h==0 && v==KeyEvent.VK_UP) {
+				rotation = 0;
+			}
+			else if (h==KeyEvent.VK_RIGHT && v==KeyEvent.VK_UP) {
+				rotation = 45;
+			}
+			else if (h==KeyEvent.VK_RIGHT && v==0) {
+				rotation = 90;
+			}
+			else if (h==KeyEvent.VK_RIGHT && v==KeyEvent.VK_DOWN) {
+				rotation = 135;
+			}
+			else if (h==0 && v==KeyEvent.VK_DOWN) {
+				rotation = 180;
+			}
+			else if (h==KeyEvent.VK_LEFT && v==KeyEvent.VK_DOWN) {
+				rotation = 225;
+			}
+			else if (h==KeyEvent.VK_LEFT && v==0) {
+				rotation = 270;
+			}
+			else if (h==KeyEvent.VK_LEFT && v==KeyEvent.VK_UP) {
+				rotation = 315;
+			}
+			
+			
 		}
 		
 			

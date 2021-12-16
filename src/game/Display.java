@@ -12,12 +12,14 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 //game panel
 
 public class Display extends JPanel implements KeyListener, ActionListener{
 	
 	public static BufferedImage image;
+	public static BufferedImage playerImage;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	Timer frameDraw = new Timer(1000/60,this);
@@ -40,16 +42,17 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 		//gameFrame.pack();
 		if (needImage) {
 	        //loadImage ("WorldMap1.jpg");
-			loadImage ("worldmap.jpg");
+			loadImage ("worldmap.jpg", "PLayer.png");
+		
 		}
 	}
 	
-	void loadImage(String imageFile) {
+	void loadImage(String imageFile, String pi) {
 	    if (needImage) {
 	    	System.out.println("trying to load " + imageFile);
 	        try {
 	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
-	           
+	           playerImage = ImageIO.read(this.getClass().getResourceAsStream(pi));
 		    gotImage = true;
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -57,6 +60,7 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 	        needImage = false;
 	    }
 	}
+	
 	
 	void drawGame(Graphics g) {
 		//g.setColor(Color.GREEN);
@@ -71,7 +75,19 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 			g.drawImage(windowWorld, 0, 0, Runner.WIDTH, Runner.HEIGHT, null);
 		
 			g.setColor(Color.ORANGE);
-			g.fillRect(365, 240, 20, 20);
+			
+			double rotationRequired = Math.toRadians (Runner.gaamState.worldMap.worldPanel.rotation);
+            double locationX = image.getWidth() / 2;
+            double locationY = image.getHeight() / 2;
+            AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+            AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+            
+            BufferedImage jhk = op.filter(playerImage, null);
+            // Drawing the rotated image at the required drawing locations
+           // g2d.drawImage(op.filter(image, null), 365, 270, null);
+            //150, 107
+            
+			g.drawImage(jhk, 290, 187, 150, 107, null);
 			//g.fillRect(player.getX()-10, player.getY()-10, 20, 20);
 			/*if (Runner.gaamState.getCurrentState() == Display.gameState.FACE) {
 			Runner.gaamState.worldMap.shopPanel.drawShop();
