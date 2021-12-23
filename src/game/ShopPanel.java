@@ -87,9 +87,11 @@ public class ShopPanel extends JPanel implements KeyListener{
 			message = "Player - Hey did the goose run by here?";
 			break;
 		case 4:
+		case 40:
 			loadShopImage("farmer-face.jpg");
 			message = "Player - Hey a goose is in your barn and it stole my \n sandwitch, can I have the key to get in?";
 			break;
+			
 		case 5:
 			loadShopImage("barn-1.jpg");
 			message = "Farmer's Note - The door is locked! I'm out in the field \n if you need me";

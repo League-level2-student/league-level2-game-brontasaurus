@@ -3,7 +3,7 @@ package game;
 public class Player {
 	int x;
 	int y;
-	int speed = 10;
+	int speed = 6;
 	final int minX = 375;
 	final int minY = 250;
 	final int maxX = 6750;

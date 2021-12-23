@@ -77,8 +77,8 @@ public class Display extends JPanel implements KeyListener, ActionListener{
 			g.setColor(Color.ORANGE);
 			
 			double rotationRequired = Math.toRadians (Runner.gaamState.worldMap.worldPanel.rotation);
-            double locationX = image.getWidth() / 2;
-            double locationY = image.getHeight() / 2;
+            double locationX = playerImage.getWidth() / 2;
+            double locationY = playerImage.getHeight() / 2;
             AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
             AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
             
@@ -87,7 +87,14 @@ public class Display extends JPanel implements KeyListener, ActionListener{
            // g2d.drawImage(op.filter(image, null), 365, 270, null);
             //150, 107
             
-			g.drawImage(jhk, 290, 187, 150, 107, null);
+            if((Runner.gaamState.worldMap.worldPanel.rotation % 90)==0) {
+            	g.drawImage(jhk, 290, 187, 80, 80, null);
+            }
+            else {
+            	g.drawImage(jhk, 290, 187, 100, 100, null);
+            }
+            
+			
 			//g.fillRect(player.getX()-10, player.getY()-10, 20, 20);
 			/*if (Runner.gaamState.getCurrentState() == Display.gameState.FACE) {
 			Runner.gaamState.worldMap.shopPanel.drawShop();

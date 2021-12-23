@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -20,7 +21,7 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	//boolean isPressed = false;
 	Player user;
 	public static BufferedImage collisionImage;
-	int speed = 10;
+	int speed = 6;
 	Timer timer = new Timer(1000/60, this);
 	WorldPanel(Player player){
 		user = player;
@@ -35,18 +36,59 @@ public class WorldPanel extends JPanel implements KeyListener, ActionListener {
 	
 	//returns true if touching not white
 	boolean checkCollision(int a, int b) {
-		int pixel = collisionImage.getRGB(a, b) & 0x00ffffff;
+		
+		int px = a;
+		int py = b;
+		
+		for(int i = 0; i <= 8; i++) {
+			
+		switch (i){
+			case 0:
+				
+				py=b-40;
+				break;
+			case 1:
+				px=a+30;
+				py=b-30;
+				break;
+			case 2:
+				px=a+40;
+				break;
+			case 3:
+				px=a+30;
+				py=b+30;
+				break;
+			case 4:
+				py=b+40;
+				break;
+			case 5:
+				px=a-30;
+				py=b+30;
+				break;
+			case 6:
+				px=a-40;
+				break;
+			case 7:
+				px=a-30;
+				py=b-30;
+				break;
+			case 8:
+			default:
+				px=a;
+				py=b;
+			break;
+				
+		}
+		int pixel = collisionImage.getRGB(px, py) & 0x00ffffff;
 		//System.out.println(pixel);
 		if(pixel != 0x00ffffff) {
-			store = sealision(a, b);
+			store = sealision(px, py);
 			
 			return true;
 		}
-		else {
-			store = 0;
-			return false;
 		}
-		
+		store = 0;
+		return false;
 	}
 	
 	
